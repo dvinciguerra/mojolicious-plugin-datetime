@@ -1,13 +1,12 @@
-#!perl -T
-use 5.010;
-use strict;
-use warnings FATAL => 'all';
+use Mojo::Base -strict;
 use Test::More;
 
-plan tests => 1;
+use FindBin;
+use lib "$FindBin::Bin/../lib";
 
 BEGIN {
-    use_ok( 'Mojolicious::Plugin::DateTime' ) || print "Bail out!\n";
+    use_ok 'DateTime';
+    use_ok 'Mojolicious::Plugin::DateTime';
 }
 
-diag( "Testing Mojolicious::Plugin::DateTime $Mojolicious::Plugin::DateTime::VERSION, Perl $], $^X" );
+done_testing;
