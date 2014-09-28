@@ -1,7 +1,8 @@
 package Mojolicious::Plugin::DateTime;
 use Mojo::Base 'Mojolicious::Plugin';
+# ABSTRACT: Mojolicious plugin to DateTime module integration
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use DateTime;
 
@@ -36,37 +37,65 @@ sub register {
 1;
 
 __END__
+=encoding utf8
+
 =head1 NAME
 
 Mojolicious::Plugin::DateTime - Mojolicious DateTime module integration!
 
-=head1 VERSION
-
-Version 0.01
-
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
+    # mojolicious non-lite
+    $self->plugin('datetime');
 
-Perhaps a little code snippet.
+    # mojolicious lite
+    pligin 'datetime'
 
-    use Mojolicious::Plugin::DateTime;
+=head1 DESCRIPTION
 
-    my $foo = Mojolicious::Plugin::DateTime->new();
-    ...
-
-=head1 EXPORT
-
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
-
-=head1 SUBROUTINES/METHODS
+This mojolicious plugin create a simple way to get an integration with
+L<DateTime> module.
 
 
+=head1 METHODS
+
+This plugin contains the following methods...
+
+=head2 datetime
+
+    # from controller
+    my $dt = $c->datetime( year => 2014, month => 9, day => 28 );
+
+    # from template
+    %= datetime( year => 2014, month => 9, day => 28 ) 
+
+Getting a new L<DateTime> object
+
+=head2 dt
+
+    # from controller
+    my $dt = $c->dt( year => 2014, month => 9, day => 28 );
+
+    # from template
+    %= dt( year => 2014, month => 9, day => 28 ) 
+
+Tiny way to call C<datetime> method
+
+=head2 now
+
+    # from controller
+    my $dt = $c->now;
+    my $dt = $c->now( time_zone => 'local' );
+
+    # from template
+    %= now
+    %= now( time_zone => 'local' )
+
+Shortcut to call C<<DateTime->now>> method
 
 =head1 AUTHOR
 
-Daniel Vinciguerra <daniel.vinciguerra at bivee.com.br>
+Daniel Vinciguerra <daniel.vinciguerra@bivee.com.br>
 
 =head1 BUGS
 
@@ -77,7 +106,7 @@ automatically be notified of progress on your bug as I make changes.
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2014 Daniel Vinciguerra.
+2014 (c) Daniel Vinciguerra.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms of Perl Programming Language itself.

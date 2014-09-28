@@ -1,9 +1,0 @@
-README
-lib/Mojolicious/Plugin/DateTime.pm
-MANIFEST
-ignore.txt
-Changes
-Makefile.PL
-t
-t/basic.t
-t/00-load.t
