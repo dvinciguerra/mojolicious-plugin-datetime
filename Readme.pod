@@ -52,7 +52,7 @@ Tiny way to call C<datetime> method
     %= now
     %= now( time_zone => 'local' )
 
-Shortcut to call C<<DateTime->now>> method
+Shortcut to call C<< DateTime->now >> method
 
 =head1 AUTHOR
 
